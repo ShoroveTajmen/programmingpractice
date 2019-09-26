@@ -14,5 +14,5 @@ int AddNaturalNum(int n)
      if(n==0)
         return n;
     else
-        return (n+AddNaturalNum(n-1));
+        return (n+AddNaturalNum(n+2));
 }
