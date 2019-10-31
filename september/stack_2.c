@@ -7,7 +7,7 @@ struct Node
     struct Node *next;
 }*top=NULL;
 
-void push(int x)
+void push(char x)
 {
     struct Node *t;
     t = (struct Node*)malloc(sizeof(struct Node));
@@ -25,7 +25,7 @@ void push(int x)
 
 }
 
-int pop()
+char pop()
 {
     struct Node *t;
     int x = -1;
@@ -43,6 +43,26 @@ int pop()
     return x;
 }
 
+int isBalanced(char *exp)
+{
+    int i;
+    for(i=0; exp[i]!='\0'; i++)
+    {
+        if(exp[i]='(')
+            push(exp[i]);
+        else if(exp[i]=')');
+        {
+            if(top == NULL)
+                return 0;
+            pop();
+        }
+    }
+    if(top == NULL)
+        return 1;
+    else
+        return 0;
+}
+
 void display()
 {
     struct Node *temp;
@@ -58,13 +78,9 @@ void display()
 }
 int main()
 {
-    push(30);
-    push(10);
-    push(20);
+    char *exp = "((a+b)*(c-d))";
 
-    display();
-
-    printf("%d\n",pop());
+    printf("%c", isBalanced(exp));
     return 0;
 }
 
