@@ -68,14 +68,26 @@ int Add(struct Node *p)
     return (sum);
 }
 
+
+int Max(struct Node *p)
+{
+    int max = 0;
+    while(p!=NULL)
+    {
+        if(p->data>max)
+            max = p->data;
+        p = p->next;
+    }
+    return max;
+}
+
 int main()
 {
 
     int A[] = {3,5,7,10,15};
     create(A,5);
 
-    printf("Length is %d\n\n",count(head));
-    printf("sum is %d\n\n",Add(head));
+    printf("Max is %d\n\n",Max(head));
 
     return 0;
 }
