@@ -49,13 +49,33 @@ void Rdisplay(struct Node *p)
     }
 }
 
+int count(struct Node *p)
+{
+    if(p!=NULL)
+        return count(p->next)+1;
+    else
+        return 0;
+}
+
+int Add(struct Node *p)
+{
+    int sum = 0;
+    while(p!=NULL)
+    {
+        sum = sum+p->data;
+        p = p->next;
+    }
+    return (sum);
+}
+
 int main()
 {
 
     int A[] = {3,5,7,10,15};
     create(A,5);
 
-    Rdisplay(head);
+    printf("Length is %d\n\n",count(head));
+    printf("sum is %d\n\n",Add(head));
 
     return 0;
 }
