@@ -83,10 +83,18 @@ int Max(struct Node *p)
 
 struct Node * Lsearch(struct Node *p,int key)
 {
+
+    struct Node *q;
     while(p!=NULL)
     {
         if(key == p->data)
+        {
+            q->next = p->next;
+            p->next = head;
+            head = p;
             return p;
+        }
+        q = p;
         p = p->next;
     }
     return NULL;
@@ -108,6 +116,8 @@ int main()
     {
         printf("key is not found");
     }
+
+    display(head);
 
 
 
