@@ -101,21 +101,43 @@ struct Node * Lsearch(struct Node *p,int key)
 
 }
 
-int main()
+void InsertNode(struct Node *p,int pos,int x)
 {
-    struct Node *temp;
-    int A[] = {3,5,7,10,15};
-    create(A,5);
+    struct Node *t;
+    int i;
 
-    temp = Lsearch(head,7);
-    if(temp!=NULL)
+    if(pos < 0 || pos > count(p))
+    return;
+    t =(struct Node*)malloc(sizeof(struct Node));
+    t->data = x;
+
+    if(pos == 0)
     {
-        printf("key is %d\n",temp->data);
+
+        t->next = head;
+        head = t;
     }
     else
     {
-        printf("key is not found");
+        for(i=0; i<pos-1; i++)
+            p = p->next;
+            t->next = p->next;
+            p->next = t;
     }
+
+
+
+}
+
+int main()
+{
+
+    InsertNode(head,0,10);
+    InsertNode(head,1,20);
+    InsertNode(head,2,30);
+    InsertNode(head,3,40);
+
+
 
     display(head);
 
