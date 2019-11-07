@@ -81,13 +81,35 @@ int Max(struct Node *p)
     return max;
 }
 
+struct Node * Lsearch(struct Node *p,int key)
+{
+    while(p!=NULL)
+    {
+        if(key == p->data)
+            return p;
+        p = p->next;
+    }
+    return NULL;
+
+}
+
 int main()
 {
-
+    struct Node *temp;
     int A[] = {3,5,7,10,15};
     create(A,5);
 
-    printf("Max is %d\n\n",Max(head));
+    temp = Lsearch(head,7);
+    if(temp!=NULL)
+    {
+        printf("key is %d\n",temp->data);
+    }
+    else
+    {
+        printf("key is not found");
+    }
+
+
 
     return 0;
 }
