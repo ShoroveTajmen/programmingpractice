@@ -129,17 +129,51 @@ void InsertNode(struct Node *p,int pos,int x)
 
 }
 
+void SortedInsert(struct Node *p,int x)
+{
+    struct Node *t,*q=NULL;
+
+    t = (struct Node*)malloc(sizeof(struct Node));
+    t->data = x;
+    t->next = NULL;
+
+    if(head == NULL)
+        head = t;
+    else
+    {
+        while(p && p->data<x)
+        {
+            q = p;
+            p = p->next;
+        }
+        if(p==head)
+        {
+            t->next=head;
+            head = t;
+        }
+        else
+        {
+            t->next = q->next;
+            q->next = t;
+        }
+
+
+
+
+    }
+}
+
 int main()
 {
 
-    InsertNode(head,0,10);
-    InsertNode(head,1,20);
-    InsertNode(head,2,30);
-    InsertNode(head,3,40);
+    SortedInsert(head,30);
+    SortedInsert(head,20);
+    SortedInsert(head,5);
 
 
 
     display(head);
+    printf("\n\n");
 
 
 
