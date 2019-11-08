@@ -195,18 +195,42 @@ int DeletNode(struct Node *p,int pos)
      }
 }
 
+int isSorted(struct Node *p)
+{
+    p = (struct Node*)malloc(sizeof(struct Node));
+    int x = -1;
+    while(p!=NULL)
+    {
+        if(p->data < x)
+            return 0;
+        x = p->data;
+        p = p->data;
+    }
+    return 1;
+}
+
 int main()
 {
 
-    int A[] = {10,20,30,40,50};
+    int A[] = {10,2,30,40,50};
     create(A,5);
 
-    DeletNode(head,1);
+    if(isSorted(head))
+
+        printf("Sorted\n");
+
+    else
+
+       printf("Not sorted\n");
+      // printf("%d\n",isSorted(head));
 
 
 
-    display(head);
-    printf("\n\n");
+
+
+
+    //display(head);
+    //printf("\n\n");
 
 
 
