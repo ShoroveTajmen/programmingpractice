@@ -163,12 +163,45 @@ void SortedInsert(struct Node *p,int x)
     }
 }
 
+int DeletNode(struct Node *p,int pos)
+{
+    struct Node *q = NULL;
+    int i;
+    int x = -1;
+
+     if(pos < 1 || pos > count(p))
+        return -1;
+     if(pos == 1)
+     {
+         q = head;
+         x = head->data;
+         head = head->next;
+         free(q);
+         return x;
+     }
+     else
+     {
+         for(i=0; i<pos-1;i++)
+         {
+             q=p;
+             p = p->next;
+         }
+
+         q->next = p->next;
+         x = p->data;
+         free(q);
+         return x;
+
+     }
+}
+
 int main()
 {
 
-    SortedInsert(head,30);
-    SortedInsert(head,20);
-    SortedInsert(head,5);
+    int A[] = {10,20,30,40,50};
+    create(A,5);
+
+    DeletNode(head,1);
 
 
 
