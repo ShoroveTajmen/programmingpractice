@@ -234,7 +234,10 @@ int main()
     int A[] = {10,20,20,30,40,50};
     create(A,6);
 
+    InsertNode(head,0,10);
+
     RemoveDuplicate(head);
+    Lsearch(head,2);
 
 
     display(head);

@@ -56,8 +56,12 @@ void display(struct Node *temp)
 
 int main()
 {
+
+
     int A[] = {10,20,30,40};
     createList(A,4);
+
+
 
     printf("Length is %d\n",length(head));
     display(head);
